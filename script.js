@@ -6,7 +6,22 @@ const historyList = document.getElementById('historyList');
 const clearHistoryBtn = document.getElementById('clearHistory');
 const historyToggle = document.getElementById('historyToggle');
 const historyPanel = document.getElementById('historyPanel');
+const historyCollapseBtn = document.getElementById('historyCollapseBtn');
 const themeToggle = document.getElementById('themeToggle');
+
+// ── History collapse (desktop) ──
+
+(function initCollapse() {
+  if (localStorage.getItem('historyCollapsed') === 'true') {
+    historyPanel.classList.add('collapsed');
+  }
+})();
+
+historyCollapseBtn.addEventListener('click', () => {
+  const isCollapsed = historyPanel.classList.toggle('collapsed');
+  localStorage.setItem('historyCollapsed', isCollapsed);
+  historyCollapseBtn.setAttribute('aria-label', isCollapsed ? 'Expandir histórico' : 'Recolher histórico');
+});
 
 // ── Theme ──
 

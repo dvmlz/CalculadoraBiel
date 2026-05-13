@@ -331,7 +331,7 @@ body {
   max-height: 480px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .history-header {
@@ -344,6 +344,27 @@ body {
   transition: border-color 0.3s;
 }
 
+.history-collapse-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.collapse-icon {
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s;
+}
+
+.history-panel.collapsed .collapse-icon {
+  transform: rotate(180deg);
+}
+
 .history-title {
   font-size: 13px;
   font-weight: 600;
@@ -351,6 +372,21 @@ body {
   letter-spacing: 1px;
   color: var(--text-dim);
   transition: color 0.3s;
+}
+
+/* collapsed state */
+.history-panel.collapsed {
+  max-height: 49px;
+  overflow: hidden;
+}
+
+.history-panel.collapsed .history-header {
+  border-bottom-color: transparent;
+}
+
+.history-panel.collapsed .history-clear-btn {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .history-clear-btn {
