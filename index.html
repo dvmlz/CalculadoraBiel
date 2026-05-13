@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <span class="app-title">Calculadora</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+      <span class="theme-toggle-track">
+        <span class="theme-toggle-thumb"></span>
+      </span>
+      <span class="theme-toggle-icon theme-toggle-icon--sun">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </span>
+      <span class="theme-toggle-icon theme-toggle-icon--moon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </span>
+    </button>
+  </header>
+
+  <div class="app">
+    <div class="calculator-wrapper">
+      <div class="calculator">
+        <div class="display">
+          <div class="display-expression" id="expression"></div>
+          <div class="display-value" id="display">0</div>
+        </div>
+        <div class="keypad">
+          <button class="btn btn-function" data-action="clear">AC</button>
+          <button class="btn btn-function" data-action="sign">+/−</button>
+          <button class="btn btn-function" data-action="percent">%</button>
+          <button class="btn btn-operator" data-action="operator" data-value="÷">÷</button>
+
+          <button class="btn btn-number" data-action="number" data-value="7">7</button>
+          <button class="btn btn-number" data-action="number" data-value="8">8</button>
+          <button class="btn btn-number" data-action="number" data-value="9">9</button>
+          <button class="btn btn-operator" data-action="operator" data-value="×">×</button>
+
+          <button class="btn btn-number" data-action="number" data-value="4">4</button>
+          <button class="btn btn-number" data-action="number" data-value="5">5</button>
+          <button class="btn btn-number" data-action="number" data-value="6">6</button>
+          <button class="btn btn-operator" data-action="operator" data-value="−">−</button>
+
+          <button class="btn btn-number" data-action="number" data-value="1">1</button>
+          <button class="btn btn-number" data-action="number" data-value="2">2</button>
+          <button class="btn btn-number" data-action="number" data-value="3">3</button>
+          <button class="btn btn-operator" data-action="operator" data-value="+">+</button>
+
+          <button class="btn btn-number btn-wide" data-action="number" data-value="0">0</button>
+          <button class="btn btn-number" data-action="decimal">.</button>
+          <button class="btn btn-equals" data-action="equals">=</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-panel" id="historyPanel">
+      <div class="history-header">
+        <span class="history-title">Histórico</span>
+        <button class="history-clear-btn" id="clearHistory">Limpar</button>
+      </div>
+      <div class="history-list" id="historyList">
+        <p class="history-empty">Nenhuma operação ainda.</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="history-toggle" id="historyToggle" aria-label="Mostrar histórico">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
